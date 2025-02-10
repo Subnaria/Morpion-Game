@@ -1,0 +1,234 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1);
+    background-size: 400% 400%;
+    animation: gradientAnimation 8s infinite ease-in-out;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Centrer le contenu dans la fenêtre */
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Cinématique d'accueil */
+#intro-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 1;
+    animation: fadeInOut 4s forwards;
+}
+
+#intro-screen h1,
+#intro-screen h2 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    opacity: 0; /* Départ invisible */
+    animation: fadeInText 1.5s forwards; /* Animation de fondu */
+}
+
+/* Animation pour faire apparaître le texte */
+@keyframes fadeInText {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+/* Style de base pour les boutons */
+#lobby, #game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    opacity: 0; /* Départ invisible */
+    animation: fadeInButton 1s forwards;
+}
+
+#lobby h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#lobby h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #ff4b5c;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 10px;
+    opacity: 0; /* Départ invisible */
+}
+
+button:hover {
+    background-color: #e63946;
+}
+
+/* Aligner les boutons de niveau de difficulté */
+#lobby button {
+    width: 200px;
+}
+
+/* Chaque bouton aura un délai différent pour l'apparition */
+#lobby button:nth-child(1) {
+    animation-delay: 1s; /* Premier bouton */
+}
+
+#lobby button:nth-child(2) {
+    animation-delay: 1.25s; /* Deuxième bouton */
+}
+
+#lobby button:nth-child(3) {
+    animation-delay: 1.5s; /* Troisième bouton */
+}
+
+#lobby button:nth-child(4) {
+    animation-delay: 2s; /* Quatrième bouton */
+}
+
+/* Animation de fondu pour les boutons */
+@keyframes fadeInButton {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animation des boutons 'Rejouer' et 'Retour au menu' */
+#result-container button {
+    opacity: 0; /* Départ invisible */
+    animation: fadeInButton 1s forwards;
+    animation-delay: 0.5s; /* Début après le temps de la cinématique */
+}
+
+/* -------------------------------------- */
+
+/* Styles du jeu */
+#game-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin-top: 30px; /* Décale un peu le jeu vers le bas si nécessaire */
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin-top: 20px;
+    justify-content: center; /* Centrer le contenu de la grille */
+    align-items: center; /* Assurer que la grille est bien centrée */
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.cell img {
+    width: 80px;
+    height: 80px;
+}
+
+#result-container {
+    display: none;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Animation pour les éléments après la cinématique */
+#lobby, #game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    opacity: 0; /* Départ invisible */
+    animation: fadeInButton 1s forwards;
+}
+
+#lobby button {
+    opacity: 0; /* Départ invisible */
+    animation: fadeInButton 1s forwards;
+    animation-delay: 1s; /* Retarde l'apparition des boutons */
+    margin: 10px;
+}
+
+#lol {
+    color: rgb(219, 63, 63);
+}
+
+#pdf-image {
+    display: block;
+    margin: 20px auto;
+    width: 150px; /* Ajuste la taille selon ton besoin */
+    height: auto;
+    border-radius: 100px;
+}
+
+.Text-dev {
+    position: absolute;  /* Positionnement libre */
+    bottom: 0;           /* Collé en bas */
+    left: 50%;           /* Alignement horizontal */
+    transform: translateX(-50%); /* Centrer par rapport à son propre width */
+    text-align: center;
+    width: 50;
+    font-size: 24px;
+    text-align: center;
+    box-shadow: #0000007a 5px -4px 20px;
+    border-radius: 20px;
+}

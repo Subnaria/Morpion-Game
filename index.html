@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morpion V.0.1</title>
+    <link rel="stylesheet" href="Contents/css/style.css">
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/018/978/499/non_2x/blue-round-button-for-design-ilustration-free-png.png">
+</head>
+<body>
+    
+    <div id="intro-screen">
+        <h1>Morpion V.0.1</h1><br><br>
+        <h2>By Pacman</h2>
+    </div>
+    
+    <div id="lobby" style="display:none;">
+        <a href="https://cscpacman.fr/">
+            <img id="pdf-image" src="Assets/img/pdf.png" alt="Image de Profil Pacman">
+        </a>
+        <h1>Morpion by Pacman Choisissez un niveau</h1>
+        <button onclick="startGame('Débutant')">Débutant</button>
+        <button onclick="startGame('Apprenti')">Apprenti</button>
+        <button onclick="startGame('Expert')">Expert</button>
+    </div>    
+
+    <div id="game-container" style="display:none;">
+        <div id="board"></div>
+        <div id="result-container" style="display:none;">
+            <p id="result-text"></p>
+            <button id="btn-replay">Rejouer</button>
+            <button id="btn-menu">Menu</button>
+        </div>
+    </div>
+
+    <footer>
+        <h2 class="Text-dev">The game is in constant development</h2>
+    </footer>
+
+    <script src="Contents/js/script.js"></script>
+</body>
+</html>
